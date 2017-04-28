@@ -9,9 +9,9 @@ namespace TestTizen
         public App()
         
         {
-            Employee[] employeeArray = new Employee[3];
 
-           
+            //create listview
+            Employee[] employeeArray = new Employee[3];
 
             employeeArray[0] = new Employee {FirstName="fattaneh" , LastName = "ameri"};
 
@@ -19,12 +19,30 @@ namespace TestTizen
 
             employeeArray[2] = new Employee {FirstName = "Reza", LastName = "amirkiani"};
 
+            //create list
+
             List<Employee> employeeList = new List<Employee>();
 
             employeeList.Add(new Employee{ FirstName = "mamd", LastName = "hasani" });
 
             employeeList.Add(new Employee{FirstName = "ebi" , LastName = "amiri"});
 
+            //create dictionary
+
+            var employeeDictionary =new Dictionary<int, Employee>();
+
+            employeeDictionary.Add(101 , new Employee
+            {
+                Id=101,
+                FirstName = "ali",
+                LastName = "Dashti"
+            });
+            employeeDictionary.Add(102,new Employee
+            {
+                Id=102,
+                FirstName = "Mohsen",
+                LastName = "Fazeli"
+            });
 
             // The root page of your application
             MainPage = new ContentPage
@@ -37,7 +55,7 @@ namespace TestTizen
                     Children = {
                         new Label {
                             HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "Welcome to Xamarin Forms!"}
+                            Text = "Listview - list - Dictionary"}
                         ,
                             new ListView
                             {
@@ -46,8 +64,17 @@ namespace TestTizen
                         },new ListView
                         {
                             ItemsSource = employeeList
+                        },new Label
+                        {
+                           Text=employeeDictionary[101].ToString()
+
                         }
-                       
+                        ,new Label
+                        {
+                            Text=employeeDictionary[102].ToString()
+
+                        }
+
                     }
                 }
             };
