@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace TestTizen
@@ -8,7 +9,9 @@ namespace TestTizen
         public App()
         
         {
-            Employee[] employeeArray=new Employee[3];
+            Employee[] employeeArray = new Employee[3];
+
+           
 
             employeeArray[0] = new Employee {FirstName="fattaneh" , LastName = "ameri"};
 
@@ -16,7 +19,12 @@ namespace TestTizen
 
             employeeArray[2] = new Employee {FirstName = "Reza", LastName = "amirkiani"};
 
-            
+            List<Employee> employeeList = new List<Employee>();
+
+            employeeList.Add(new Employee{ FirstName = "mamd", LastName = "hasani" });
+
+            employeeList.Add(new Employee{FirstName = "ebi" , LastName = "amiri"});
+
 
             // The root page of your application
             MainPage = new ContentPage
@@ -31,9 +39,13 @@ namespace TestTizen
                             HorizontalTextAlignment = TextAlignment.Center,
                             Text = "Welcome to Xamarin Forms!"}
                         ,
-                            new ListView() {
+                            new ListView
+                            {
                                 
                                 ItemsSource = employeeArray
+                        },new ListView
+                        {
+                            ItemsSource = employeeList
                         }
                        
                     }
